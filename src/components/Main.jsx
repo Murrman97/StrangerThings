@@ -1,6 +1,8 @@
 import ReactDOM from "react-dom";
 import React, { useEffect, useState } from "react";
 import { API_KEY } from "../api";
+import Navbar from "./Navbar";
+import { Switch, Route } from "react-router-dom";
 
 const main = () => {
   const [posts, setPosts] = useState([]);
@@ -16,7 +18,12 @@ const main = () => {
 
   return (
     <div>
-      <h1>hello main</h1>
+      <Navbar></Navbar>
+      <Switch>
+        <Route path="/main">
+          <h1>hello main</h1>
+        </Route>
+      </Switch>
     </div>
   );
 };
