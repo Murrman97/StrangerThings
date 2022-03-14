@@ -11,9 +11,9 @@ U - Update
 D - Delete/Destroy
 */
 const App=()=>{
-  return<div className="app">
-    <Main />
+  return(<div className="app">
     <Navbar />
-  </div>
+    <Main />
+  </div>)
 }
 ReactDOM.render(<App/>,document.getElementById("app"));

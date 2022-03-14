@@ -5,7 +5,7 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
 
-const main = () => {
+const main = (props) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -22,10 +22,9 @@ const main = () => {
   return (
     <div>
       <Router>
-        <Navbar></Navbar>
       <Switch>
-        <Route path="./users/register" component={SignUp} ></Route>
-        <Route path="./users/login" component={Login}></Route>
+        <Route path="./users/register" component={SignUp} >{SignUp}</Route>
+        <Route path="./users/login" component={Login}>{Login}</Route>
         <Route path="./main"></Route>
       </Switch>
       </Router>
