@@ -1,7 +1,16 @@
 import React from "react";
 
 const Navbar = () => {
-  return <div>nav</div>;
+  return (
+  <div>
+    <a href="./users/login">login</a>
+    <a href="./main">main</a>
+    {//<navlink to="./login">Login</navlink>
+    }
+    </div>
+    );
+
+
 };
 
 export default Navbar;

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Main } from "./components";
+import { Main, Navbar,SignUp,Login } from "./components";
 
 /* 
 CRUD Application
@@ -10,10 +10,10 @@ R - Read
 U - Update
 D - Delete/Destroy
 */
-
-ReactDOM.render(
-  <Router>
+const App=()=>{
+  return<div className="app">
     <Main />
-  </Router>,
-  document.getElementById("app")
-);
+    <Navbar />
+  </div>
+}
+ReactDOM.render(<App/>,document.getElementById("app"));
