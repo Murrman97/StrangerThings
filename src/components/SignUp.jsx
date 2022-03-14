@@ -31,9 +31,7 @@ const SignUp = () => {
             setPassword(e.target.value);
           }}
         />
-        <button className="btn" type="submit">
-          Sign Up
-        </button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );

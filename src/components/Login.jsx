@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { loginUser } from "../api";
 
@@ -19,7 +19,7 @@ const Login = () => {
         <input
           value={username}
           type="text"
-          placeholder="username"
+          placeholder="Username*"
           onChange={(e) => {
             setUsername(e.target.value);
           }}
@@ -27,15 +27,19 @@ const Login = () => {
         <input
           value={password}
           type="text"
-          placeholder="password"
+          placeholder="Password*"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <button type="submit">Log in</button>
       </form>
-      <p>Don't have an account? {}</p>
-      <button>Sign Up</button>
+      <p>
+        Don't have an account?
+        <Link className="Sign" to="/users/register">
+          Sign Up
+        </Link>
+      </p>
     </div>
   );
 };
