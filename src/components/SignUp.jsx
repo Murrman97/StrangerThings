@@ -6,11 +6,13 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <div className="SignUpClass">
       <form
-        onSubmit={async (e) => {
+        onSubmit={(e) => {
           e.preventDefault();
-          const result = await registerUser(username, password);
+          registerUser(username, password);
+          setUsername("");
+          setPassword("");
         }}
       >
         <input
@@ -29,7 +31,9 @@ const SignUp = () => {
             setPassword(e.target.value);
           }}
         />
-        <button type="submit">Sign Up</button>
+        <button className="btn" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );
