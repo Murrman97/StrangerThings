@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Route } from "react-router-dom";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { loginUser } from "../api";
 
 const Login=()=>{
@@ -6,7 +8,7 @@ const Login=()=>{
     const[password,setPassword]=useState('');
     return(
         <div>
-            <form on onSubmit={async (e)=>{
+            <form onSubmit={async (e)=>{
                 e.preventDefault();
                 const result=await loginUser(username,password);
             }}>
@@ -26,7 +28,12 @@ const Login=()=>{
             setPassword(e.target.value);
           }}
         />
-        <button type="submit">Log in</button>
+        <button type="submit"
+        onClick={(e)=>{
+          if(!localStorage.getItem(result.data.token))
+          console.log("success");
+          }
+          }>Log in</button>
             </form>
         </div>
     )

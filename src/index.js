@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Main, Navbar,SignUp,Login } from "./components";
+import { Main} from "./components";
 
 /* 
 CRUD Application
@@ -11,9 +11,11 @@ U - Update
 D - Delete/Destroy
 */
 const App=()=>{
+  const [isLoggedIn, setIsLoggedIn]=useState(false);
   return(<div className="app">
-    <Navbar />
-    <Main />
+    <Router>
+    <Main setIsLoggedIn={setIsLoggedIn}/>
+    </Router>
   </div>)
 }
 ReactDOM.render(<App/>,document.getElementById("app"));

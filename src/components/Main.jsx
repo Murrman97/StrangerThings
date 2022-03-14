@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, BrowserRouter as Router, Route, Link} from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
 
@@ -20,14 +20,13 @@ const main = (props) => {
   }, []);
   console.log(posts);
   return (
-    <div>
-      <Router>
+    <div >
+      <Navbar />
       <Switch>
-        <Route path="./users/register" component={SignUp} >{SignUp}</Route>
-        <Route path="./users/login" component={Login}>{Login}</Route>
-        <Route path="./main"></Route>
+        <Route path="/users/register" ><SignUp /></Route>
+        <Route exact path="/users/login"><Login /></Route>
+        <Route path="/main"></Route>
       </Switch>
-      </Router>
     </div>
   );
 };
