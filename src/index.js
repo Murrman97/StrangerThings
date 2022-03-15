@@ -5,11 +5,10 @@ import { Main } from "./components";
 import "./index.css";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="app">
       <Router>
-        <Main setIsLoggedIn={setIsLoggedIn} />
+        <Main />
       </Router>
     </div>
   );

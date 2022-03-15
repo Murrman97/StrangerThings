@@ -41,7 +41,7 @@ export const loginUser = async (username, password) => {
   )
     .then((response) => response.json())
     .then((result) => {
-      localStorage.getItem("token", result.data.token);
+      localStorage.setItem("token", result.data.token);
       return result.data.token;
     })
     .catch(console.error);
@@ -62,3 +62,15 @@ export const newPost = async (createPost, token) => {
     }
   ).then((response) => response.json);
 };
+
+// export const gotToken = () => {
+//   const [token, setToken] = useState(null);
+
+//   useEffect(() => {
+//     const currentToken = localStorage.getItem("token");
+//     currentToken ? setToken(currentToken) : null;
+//   }, []);
+
+//   // console.log(token);
+//   return token;
+// };

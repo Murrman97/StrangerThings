@@ -6,25 +6,25 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import Posts from "./Posts";
 
-const main = (props) => {
+const Main = (props) => {
   const [token, setToken] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
-    currentToken ? setToken(currentToken) : null;
+    currentToken ? setIsLoggedIn(true) : null;
   }, []);
 
-  // console.log(token);
-
+  console.log(token);
   return (
     <div className="MainClass">
-      <Navbar token={token} />
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
         <Route path="/users/register">
-          <SignUp />
+          <SignUp setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route exact path="/">
-          <Login />
+          <Login setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/posts">
           <Posts />
@@ -34,4 +34,4 @@ const main = (props) => {
   );
 };
 
-export default main;
+export default Main;

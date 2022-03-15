@@ -1,21 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Link } from "react-router-dom";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 import { loginUser } from "../api";
 
-const Login = () => {
+const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  let history = useHistory();
+
+  async function handleClick(e) {
+    e.preventDefault();
+    await loginUser(username, password);
+
+    setUsername("");
+    setPassword("");
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      history.push("/home");
+      setIsLoggedIn(true);
+    }
+  }
+
   return (
     <div className="LoginClass">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          loginUser(username, password);
-          setUsername("");
-          setPassword("");
-        }}
-      >
+      <form onSubmit={handleClick}>
         <input
           value={username}
           type="text"
