@@ -6,6 +6,7 @@ import { loginUser } from "../api";
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let history = useHistory();
 
   async function handleClick(e) {
     e.preventDefault();
@@ -16,8 +17,8 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-      history.push("/home");
       setIsLoggedIn(true);
+      history.push("/home");
     }
   }
 

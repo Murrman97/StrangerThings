@@ -30,9 +30,11 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <Link to="/">Login</Link>
         </li>
       )}
-      <li>
-        <Link to="/users/register">Sign Up</Link>
-      </li>
+      {isLoggedIn ? null : (
+        <li>
+          <Link to="/users/register">Sign Up</Link>
+        </li>
+      )}
     </div>
   );
 };
