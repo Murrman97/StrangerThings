@@ -7,10 +7,6 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  let history = useHistory();
-
   async function handleClick(e) {
     e.preventDefault();
     await loginUser(username, password);

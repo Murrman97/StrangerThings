@@ -6,16 +6,23 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  async function handleClick(e) {
+    e.preventDefault();
+    await registerUser(username, password);
+
+    setUsername("");
+    setPassword("");
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      history.push("/home");
+      setIsLoggedIn(true);
+    }
+  }
+
   return (
     <div className="SignUpClass">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          registerUser(username, password);
-          setUsername("");
-          setPassword("");
-        }}
-      >
+      <form onSubmit={handleClick}>
         <input
           value={username}
           type="text"
