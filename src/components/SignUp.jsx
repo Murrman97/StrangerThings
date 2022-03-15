@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { registerUser } from "../api";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -33,6 +34,12 @@ const SignUp = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
+      <p>
+        Already have an account?
+        <Link className="Sign" to="/">
+          Login
+        </Link>
+      </p>
     </div>
   );
 };
