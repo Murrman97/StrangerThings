@@ -54,28 +54,32 @@ export const newPost = async (createPost, token) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         post: {
           title: createPost[0],
           description: createPost[1],
           price: createPost[2],
-          willDeliver: createPost[3]
+          willDeliver: createPost[3],
         },
       }),
     }
-  ).then((response) => response.json).catch(console.error);
+  )
+    .then((response) => response.json)
+    .catch(console.error);
 };
 
-// export const gotToken = () => {
-//   const [token, setToken] = useState(null);
-
-//   useEffect(() => {
-//     const currentToken = localStorage.getItem("token");
-//     currentToken ? setToken(currentToken) : null;
-//   }, []);
-
-//   // console.log(token);
-//   return token;
-// };
+export const getMe = async (token) => {
+  const response = await fetch(
+    "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/users/me",
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  const data = await response.json();
+  return data;
+};
