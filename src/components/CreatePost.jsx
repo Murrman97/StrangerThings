@@ -12,6 +12,12 @@ const CreatePost = () => {
   return (
     <div className="CreatePost">
       <h1>Create a Post</h1>
+      <input type="text" placeholder="Title" id="title"></input><br></br>
+      <input type="text" placeholder="Description"></input><br></br>
+      <input type="text" placeholder="Price*"></input><br></br>
+      <input type="text" placeholder="Location"></input><br></br>
+      <input type="checkbox"></input><label>Willing to deliver?</label><br></br>
+      <button >Create post</button>
     </div>
   );
 };

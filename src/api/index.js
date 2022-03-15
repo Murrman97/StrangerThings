@@ -57,7 +57,12 @@ export const newPost = async (createPost, token) => {
         'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({
-        post: createPost,
+        post: {
+          title: createPost[0],
+          description: createPost[1],
+          price: createPost[2],
+          willDeliver: createPost[3]
+        },
       }),
     }
   ).then((response) => response.json).catch(console.error);

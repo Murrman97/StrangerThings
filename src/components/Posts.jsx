@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -20,6 +21,7 @@ const Posts = () => {
     <input type="search" placeholder="search posts" onChange={(e)=>{
       setSearchTerm(e.target.value)
     }}></input>
+    <Link to="/CreatePost">add Post</Link>
     {posts.filter((post)=>{
       if(searchTerm==""){
       return post;}

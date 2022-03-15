@@ -5,6 +5,7 @@ import { Switch, BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Posts from "./Posts";
+import CreatePost from "./CreatePost";
 
 const Main = (props) => {
   const [token, setToken] = useState(null);
@@ -28,6 +29,9 @@ const Main = (props) => {
         </Route>
         <Route path="/posts">
           <Posts />
+        </Route>
+        <Route path="/createPost">
+          <CreatePost/>
         </Route>
       </Switch>
     </div>
