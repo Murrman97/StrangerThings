@@ -47,7 +47,7 @@ export const loginUser = async (username, password) => {
     .catch(console.error);
 };
 
-export const newPost = async (createPost, token) => {
+export const newPost = async (postDetails, token) => {
   const response = await fetch(
     "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts",
     {
@@ -58,10 +58,11 @@ export const newPost = async (createPost, token) => {
       },
       body: JSON.stringify({
         post: {
-          title: createPost[0],
-          description: createPost[1],
-          price: createPost[2],
-          willDeliver: createPost[3],
+          title: postDetails.title,
+          description: postDetails.description,
+          price: postDetails.price,
+          location: postDetails.location,
+          willDeliver: postDetails.willDeliver,
         },
       }),
     }

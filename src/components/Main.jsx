@@ -28,6 +28,7 @@ const Main = (props) => {
     }
   }, []);
   console.log(userObj);
+
   // console.log(token);
   return (
     <div className="MainClass">
@@ -43,7 +44,7 @@ const Main = (props) => {
           <Login setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/posts">
-          <Posts />
+          <Posts userObj={userObj} />
         </Route>
         <Route path="/createPost">
           <CreatePost setIsLoggedIn={setIsLoggedIn} />
