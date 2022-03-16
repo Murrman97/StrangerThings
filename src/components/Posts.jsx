@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Post from "./Post";
 
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
+const Posts = (props) => {
+  const {posts}=props;
+  /*const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     const fetchPost = async () => {
@@ -15,8 +16,9 @@ const Posts = () => {
     };
     fetchPost();
   }, []);
-  console.log(posts);
-
+  */
+  //console.log(posts);
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <div className="MainPosts">
       <h1>Posts</h1>

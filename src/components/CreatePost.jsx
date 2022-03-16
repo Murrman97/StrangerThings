@@ -8,15 +8,17 @@ const CreatePost = ({ token, posts, setPosts }) => {
   const [location, setLocation] = useState("");
   const [deliver, setDeliver] = useState(false);
   const [checked, setChecked] = useState(false);
-
+  console.log(posts,"this is posts passed in to CreatePost")
   const handleSubmit = async (e) => {
     e.preventDefault();
     const postDetailsObj = { title, description, location, price, deliver };
     console.log(postDetailsObj);
-    const response = await newPost(postDetailsObj, token);
+    const response = await newPost(postDetailsObj, localStorage.getItem("token"));
     console.log(response.data.post, "data");
-    const newPosts = [response.data.post, ...posts];
-    setPosts(newPosts);
+  /*const newPosts = [response.data.post, ...posts];
+  */
+ 
+    setPosts([...posts, response.data.post]);
   };
 
   return (

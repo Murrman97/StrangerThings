@@ -14,9 +14,23 @@ const Main = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState({});
 
+  const [posts, setPosts] = useState([]);
+  //const [searchTerm, setSearchTerm] = useState("");
+  useEffect(() => {
+    const fetchPost = async () => {
+      const response = await fetch(
+        `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts`
+      );
+      const data = await response.json();
+      setPosts(data.data.posts);
+    };
+    fetchPost();
+  }, []);
+  
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
-    const userMe = async () => {
+
+    const catchMe = async () => {
       const data = await getMe(currentToken);
       setUserObj(data.data);
     };
@@ -24,11 +38,15 @@ const Main = (props) => {
     if (currentToken) {
       setIsLoggedIn(true);
       setToken(currentToken);
-      userMe();
+      catchMe();
+
     }
   }, []);
   console.log(userObj);
-
+/*  useEffect(()=>{
+    localStorage.getItem("token") ? setToken(localStorage.getItem("token")) : null  
+  },[])
+  */
   // console.log(token);
   return (
     <div className="MainClass">
@@ -44,10 +62,10 @@ const Main = (props) => {
           <Login setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/posts">
-          <Posts userObj={userObj} />
+          <Posts userObj={userObj} posts={posts} setPosts={setPosts}/>
         </Route>
         <Route path="/createPost">
-          <CreatePost setIsLoggedIn={setIsLoggedIn} />
+          <CreatePost setIsLoggedIn={setIsLoggedIn} posts={posts} setPosts={setPosts}/>
         </Route>
       </Switch>
     </div>

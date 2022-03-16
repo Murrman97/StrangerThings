@@ -33,16 +33,16 @@ export const loginUser = async (username, password) => {
       },
       body: JSON.stringify({
         user: {
-          username,
-          password,
+          username: username,
+          password: password,
         },
       }),
     }
   )
     .then((response) => response.json())
-    .then((result) => {
-      localStorage.setItem("token", result.data.token);
-      return result.data.token;
+    .then(async (result) => {
+      localStorage.setItem("token", await result.data.token);
+      return await result.data.token;
     })
     .catch(console.error);
 };
@@ -67,8 +67,8 @@ export const newPost = async (postDetails, token) => {
       }),
     }
   )
-    .then((response) => response.json)
-    .catch(console.error);
+    const data=await response.json();
+    return data;
 };
 
 export const getMe = async (token) => {
