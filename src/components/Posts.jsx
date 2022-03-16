@@ -18,16 +18,19 @@ const Posts = () => {
   console.log(posts);
 
   return (
-    <div>
+    <div className="MainPosts">
       <h1>Posts</h1>
       <input
+        className="PostInputBar"
         type="search"
         placeholder="search posts"
         onChange={(e) => {
           setSearchTerm(e.target.value);
         }}
       ></input>
-      <Link to="/CreatePost">add Post</Link>
+      <Link className="PostInput" to="/CreatePost">
+        <button>add Post</button>
+      </Link>
       {posts
         .filter((post) => {
           if (searchTerm == "") {

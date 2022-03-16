@@ -42,7 +42,7 @@ const Main = (props) => {
           <Posts />
         </Route>
         <Route path="/createPost">
-          <CreatePost />
+          <CreatePost setIsLoggedIn={setIsLoggedIn} />
         </Route>
       </Switch>
     </div>

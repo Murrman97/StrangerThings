@@ -2,7 +2,7 @@ import React from "react";
 
 const Post = ({ post }) => {
   return (
-    <div key={post._id}>
+    <div className="SinglePost" key={post._id}>
       <h2>{post.title}</h2>
       <p>{post.description}</p>
       <p>Price: {post.price}</p>

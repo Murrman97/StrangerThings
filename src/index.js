@@ -7,10 +7,13 @@ import "./index.css";
 const App = () => {
   return (
     <div className="app">
-      <Router>
-        <Main />
-      </Router>
+      <Main />
     </div>
   );
 };
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById("app")
+);
