@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { registerUser } from "../api";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = (setIsLoggedIn) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const isLoggedIn = setIsLoggedIn;
+
+  let history = useHistory();
 
   async function handleClick(e) {
     e.preventDefault();
@@ -15,8 +18,8 @@ const SignUp = () => {
     const token = localStorage.getItem("token");
 
     if (token) {
-      history.push("/home");
-      setIsLoggedIn(true);
+      history.push("/");
+      await setIsLoggedIn(true);
     }
   }
 
@@ -33,7 +36,7 @@ const SignUp = () => {
         />
         <input
           value={password}
-          type="text"
+          type="password"
           placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);

@@ -7,6 +7,7 @@ import Login from "./Login";
 import Posts from "./Posts";
 import CreatePost from "./CreatePost";
 import { getMe } from "../api";
+import Home from "./Home";
 
 const Main = (props) => {
   const [token, setToken] = useState(null);
@@ -32,6 +33,9 @@ const Main = (props) => {
     <div className="MainClass">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
+        <Route path="/home">
+          <Home setIsLoggedIn={setIsLoggedIn} />
+        </Route>
         <Route path="/users/register">
           <SignUp setIsLoggedIn={setIsLoggedIn} />
         </Route>

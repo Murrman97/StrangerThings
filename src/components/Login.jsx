@@ -35,7 +35,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         />
         <input
           value={password}
-          type="text"
+          type="password"
           placeholder="Password*"
           onChange={(e) => {
             setPassword(e.target.value);
