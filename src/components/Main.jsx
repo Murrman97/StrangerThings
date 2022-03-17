@@ -8,6 +8,7 @@ import Posts from "./Posts";
 import CreatePost from "./CreatePost";
 import { getMe } from "../api";
 import Home from "./Home";
+import Message from "./Message";
 
 const Main = (props) => {
   const [token, setToken] = useState(null);
@@ -60,6 +61,9 @@ const Main = (props) => {
         </Route>
         <Route exact path="/">
           <Login setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route path="/posts/:postid">
+          <Message posts={posts} />
         </Route>
         <Route path="/posts">
           <Posts userObj={userObj} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} posts={posts} setPosts={setPosts}/>
