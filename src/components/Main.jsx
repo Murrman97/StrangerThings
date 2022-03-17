@@ -9,6 +9,7 @@ import CreatePost from "./CreatePost";
 import { getMe } from "../api";
 import Home from "./Home";
 import Message from "./Message";
+import View from "./View";
 
 const Main = (props) => {
   const [token, setToken] = useState(null);
@@ -27,7 +28,7 @@ const Main = (props) => {
     };
     fetchPost();
   }, []);
-  
+
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
 
@@ -40,11 +41,10 @@ const Main = (props) => {
       setIsLoggedIn(true);
       setToken(currentToken);
       catchMe();
-
     }
   }, []);
-  console.log(userObj);
-/*  useEffect(()=>{
+  // console.log(userObj);
+  /*  useEffect(()=>{
     localStorage.getItem("token") ? setToken(localStorage.getItem("token")) : null  
   },[])
   */
@@ -62,14 +62,27 @@ const Main = (props) => {
         <Route exact path="/">
           <Login setIsLoggedIn={setIsLoggedIn} />
         </Route>
-        <Route path="/posts/:postid">
+        <Route path="/posts/:postid/messages">
           <Message posts={posts} />
         </Route>
+        <Route path="/posts/view/:postid">
+          <View posts={posts} />
+        </Route>
         <Route path="/posts">
-          <Posts userObj={userObj} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} posts={posts} setPosts={setPosts}/>
+          <Posts
+            userObj={userObj}
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+            posts={posts}
+            setPosts={setPosts}
+          />
         </Route>
         <Route path="/createPost">
-          <CreatePost setIsLoggedIn={setIsLoggedIn} posts={posts} setPosts={setPosts}/>
+          <CreatePost
+            setIsLoggedIn={setIsLoggedIn}
+            posts={posts}
+            setPosts={setPosts}
+          />
         </Route>
       </Switch>
     </div>

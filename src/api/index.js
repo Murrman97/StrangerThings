@@ -68,7 +68,7 @@ export const newPost = async (postDetails, token) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         post: {
@@ -80,19 +80,19 @@ export const newPost = async (postDetails, token) => {
         },
       }),
     }
-  )
-    const data=await response.json();
-    return data;
+  );
+  const data = await response.json();
+  return data;
 };
 
-export const updatePost=async (postDetails,token)=>{
-  const response=await fetch(
+export const updatePost = async (postDetails, token) => {
+  const response = await fetch(
     `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/${postDetails._id}`,
     {
       method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         post: {
@@ -104,46 +104,47 @@ export const updatePost=async (postDetails,token)=>{
         },
       }),
     }
-  )
+  );
   const data = await response.json();
   return data;
 };
 
-export const deletePost=async (postDetails,token)=>{
-  const response=await fetch(
+export const deletePost = async (postDetails, token) => {
+  const response = await fetch(
     `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/${postDetails._id}`,
     {
       method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`,
-      }
-    })
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   const data = await response.json();
   return data;
 };
-
-
 
 /*
 Need to check it alter on. Eventually make adjustment in parameter(s)
 */
 
-export const newMessage= async(messageDetails,post,token)=>{
-  const response=await fetch(
-    `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts/${post._id}/messages`,{
+export const newMessage = async (messageDetails, postId, token) => {
+  console.log(postId, "postID");
+  const response = await fetch(
+    `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts/${postId}/messages`,
+    {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer TOKEN_STRING_HERE'
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         message: {
-          content: messageDetails.content,
-        }
-      })
+          content: messageDetails,
+        },
+      }),
     }
-  )
+  );
   const data = await response.json();
-  return data
+  return data;
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Post from "./Post";
 
 const Posts = (props) => {
-  const {posts,isLoggedIn, userObj}=props;
+  const { posts, isLoggedIn, userObj } = props;
 
   /*const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,9 +31,13 @@ const Posts = (props) => {
           setSearchTerm(e.target.value);
         }}
       ></input>
+
+      {/* //{} isloggedin} */}
+
       <Link className="PostInput" to="/CreatePost">
         <button>add Post</button>
       </Link>
+
       {posts
         .filter((post) => {
           if (searchTerm == "") {
@@ -48,7 +52,14 @@ const Posts = (props) => {
           }
         })
         .map((post, i) => {
-          return <Post post={post} isLoggedIn={isLoggedIn} userObj={userObj} key={i} />;
+          return (
+            <Post
+              post={post}
+              isLoggedIn={isLoggedIn}
+              userObj={userObj}
+              key={i}
+            />
+          );
         })}
     </div>
   );

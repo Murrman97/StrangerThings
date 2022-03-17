@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Post = ({ post, isLoggedIn, userObj }) => {
-  console.log(post);
+  // console.log(post);
   return (
     <div className="SinglePost" key={post._id}>
       <h2>{post.title}</h2>
@@ -10,20 +10,16 @@ const Post = ({ post, isLoggedIn, userObj }) => {
       <p>Price: {post.price}</p>
       <p>Seller: {post.author.username}</p>
       <p>Location: {post.location}</p>
-      {isLoggedIn&&post.author._id==userObj._id?(
-        <Link to={`/posts/${post._id}`} >
-        <button>
-        View
-        </button>
+      {isLoggedIn && post.author._id == userObj._id ? (
+        <Link to={`/posts/view/${post._id}`}>
+          <button>View</button>
         </Link>
-     
-      ):null}
-      {isLoggedIn&&post.author._id!=userObj._id? ( <Link to={`/posts/${post._id}`} >
-      <button>
-      Send message
-      </button>
-      </Link>):null}
-      
+      ) : null}
+      {isLoggedIn && post.author._id != userObj._id ? (
+        <Link to={`/posts/${post._id}/messages`}>
+          <button>Send message</button>
+        </Link>
+      ) : null}
     </div>
   );
 };
