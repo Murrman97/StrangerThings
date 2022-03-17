@@ -15,13 +15,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <Link to="/home">HOME</Link>
         </li>
       ) : null}
-
-      {isLoggedIn ? (
-        <li>
-          <Link to="/posts">POSTS</Link>
-        </li>
-      ) : null}
-
+<li>
+<Link to="/posts">POSTS</Link>
+</li>
       {isLoggedIn ? (
         <li>
           <Link to="/profile">PROFILE</Link>

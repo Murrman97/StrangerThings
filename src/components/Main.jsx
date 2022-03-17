@@ -62,7 +62,7 @@ const Main = (props) => {
           <Login setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/posts">
-          <Posts userObj={userObj} posts={posts} setPosts={setPosts}/>
+          <Posts userObj={userObj} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} posts={posts} setPosts={setPosts}/>
         </Route>
         <Route path="/createPost">
           <CreatePost setIsLoggedIn={setIsLoggedIn} posts={posts} setPosts={setPosts}/>

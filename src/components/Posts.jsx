@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Post from "./Post";
 
 const Posts = (props) => {
-  const {posts}=props;
+  const {posts,isLoggedIn, userObj}=props;
+
   /*const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
@@ -47,7 +48,7 @@ const Posts = (props) => {
           }
         })
         .map((post, i) => {
-          return <Post post={post} key={i} />;
+          return <Post post={post} isLoggedIn={isLoggedIn} userObj={userObj} key={i} />;
         })}
     </div>
   );
