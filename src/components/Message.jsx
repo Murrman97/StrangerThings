@@ -44,7 +44,9 @@ const Message = (props) => {
                 setMyMessage(e.target.value);
               }}
             ></input>
-            <button type="submit">Send Message</button>
+            <button className="sendMsg" type="submit">
+              Send Message
+            </button>
           </form>
         </div>
       ) : null}

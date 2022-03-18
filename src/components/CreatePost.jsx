@@ -8,22 +8,25 @@ const CreatePost = ({ token, posts, setPosts }) => {
   const [location, setLocation] = useState("");
   const [deliver, setDeliver] = useState(false);
   const [checked, setChecked] = useState(false);
-  console.log(posts,"this is posts passed in to CreatePost")
+  console.log(posts, "this is posts passed in to CreatePost");
   const handleSubmit = async (e) => {
     e.preventDefault();
     const postDetailsObj = { title, description, location, price, deliver };
     console.log(postDetailsObj);
-    const response = await newPost(postDetailsObj, localStorage.getItem("token"));
+    const response = await newPost(
+      postDetailsObj,
+      localStorage.getItem("token")
+    );
     console.log(response.data.post, "data");
-  /*const newPosts = [response.data.post, ...posts];
-  */
- 
+    /*const newPosts = [response.data.post, ...posts];
+     */
+
     setPosts([...posts, response.data.post]);
   };
 
   return (
     <div className="CreatePost">
-      <h1>Create a Post</h1>
+      <h1>Add New Post</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -76,7 +79,7 @@ const CreatePost = ({ token, posts, setPosts }) => {
         ></input>
         <label>Willing to deliver?</label>
         <br></br>
-        <button type="submit">Create post</button>
+        <button type="submit">CREATE</button>
       </form>
     </div>
   );

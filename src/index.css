@@ -151,6 +151,8 @@ button {
   font-size: 28px;
   text-align: center;
   margin: auto;
+  width: 18vw;
+  height: 3vh;
 }
 
 .PostInput {
@@ -159,7 +161,10 @@ button {
   font-size: 28px;
   text-align: center;
   margin: auto;
-  max-width: 70px;
+}
+
+.PostInput button {
+  width: 8vw;
 }
 
 .SinglePost {
@@ -168,6 +173,10 @@ button {
   border: 0.1rem solid black;
   border-radius: 1rem;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.SinglePost a button {
+  width: 20vw;
 }
 
 .HomePage {
@@ -193,4 +202,37 @@ button {
   border: 0.1rem solid blue;
   color: blue;
   opacity: 0.8;
+}
+
+.sendMsg {
+}
+
+.CreatePost h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 68px;
+  margin-top: 5rem;
+}
+
+.CreatePost input {
+  display: flex;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 1rem;
+  height: 6vh;
+  width: 30vw;
+  border: 0.2rem solid blue;
+}
+
+.CreatePost label {
+  font-size: 24px;
+  margin-top: 1rem;
+}
+
+.CreatePost button {
+  width: 30vw;
+  height: 4vh;
+  border: 0.1rem solid blue;
+  background-color: white;
+  opacity: 0.7;
 }
