@@ -18,8 +18,7 @@ const CreatePost = ({ token, posts, setPosts }) => {
       localStorage.getItem("token")
     );
     console.log(response.data.post, "data");
-    /*const newPosts = [response.data.post, ...posts];
-     */
+    const newPosts = [response.data.post, ...posts];
 
     setPosts([...posts, response.data.post]);
   };

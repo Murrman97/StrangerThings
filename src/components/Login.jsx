@@ -16,6 +16,9 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
     setPassword("");
     const token = localStorage.getItem("token");
 
+    // localStorage.setItem("token", await result.data.token);
+    //   return await result.data.token;
+
     if (token) {
       setIsLoggedIn(true);
       history.push("/home");

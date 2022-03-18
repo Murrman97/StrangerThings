@@ -1,28 +1,15 @@
 import React from "react";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Message from "./Message";
 const Profile = (props) => {
-  const {isLoggedIn, userObj,messages,posts}=props
-const [message,setMessages]=useState([]);
-  return( <div className="Message">
-    <h1>Messages</h1>
-    {posts.filter((post)=>{
-      if(post.author._id===userObj._id){
-        return post.message;
-      }
+  const { isLoggedIn, userObj, posts } = props;
+  console.log(userObj.messages);
 
-    })
-    .map((message,i)=>{
-      return(
-        <div key={i}>{
+  const messages = userObj.messages.map((message) => {
+    return message.content;
+  });
 
-          //Notsure about message.message. 
-        }
-          <p>{message.message}</p>
-          </div>
-      );
-    })}
-  </div>)
+  return <div className="Message">{messages}</div>;
 };
 
 export default Profile;

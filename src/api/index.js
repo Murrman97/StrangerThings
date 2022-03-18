@@ -111,7 +111,7 @@ export const updatePost = async (postDetails, token) => {
 
 export const deletePost = async (postId, token) => {
   const response = await fetch(
-    `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts/${postId}`,
+    `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/${postId}`,
     {
       method: "DELETE",
       headers: {

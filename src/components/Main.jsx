@@ -26,14 +26,11 @@ render messages. Not sure how access message contentin profile component
 
 */
 
-
-
-
 const Main = (props) => {
   const [token, setToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState({});
-const [messages, setMessages]=useState([]);
+
   const [posts, setPosts] = useState([]);
   //const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
@@ -46,7 +43,6 @@ const [messages, setMessages]=useState([]);
     };
     fetchPost();
   }, []);
-
 
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
@@ -73,7 +69,7 @@ const [messages, setMessages]=useState([]);
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
         <Route path="/home">
-          <Home setIsLoggedIn={setIsLoggedIn} />
+          <Home setIsLoggedIn={setIsLoggedIn} userObj={userObj} />
         </Route>
         <Route path="/users/register">
           <SignUp setIsLoggedIn={setIsLoggedIn} />
@@ -104,7 +100,7 @@ const [messages, setMessages]=useState([]);
           />
         </Route>
         <Route path="/profile">
-          <Profile Message={messages} isLoggedIn={isLoggedIn} userObj={userObj} posts={posts}/>
+          <Profile isLoggedIn={isLoggedIn} userObj={userObj} posts={posts} />
         </Route>
       </Switch>
     </div>
