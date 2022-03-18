@@ -4,21 +4,6 @@ import Post from "./Post";
 
 const Posts = (props) => {
   const { posts, isLoggedIn, userObj } = props;
-
-  /*const [posts, setPosts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  useEffect(() => {
-    const fetchPost = async () => {
-      const response = await fetch(
-        `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts`
-      );
-      const data = await response.json();
-      setPosts(data.data.posts);
-    };
-    fetchPost();
-  }, []);
-  */
-  //console.log(posts);
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <div className="MainPosts">

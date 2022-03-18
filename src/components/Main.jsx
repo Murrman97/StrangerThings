@@ -10,12 +10,30 @@ import { getMe } from "../api";
 import Home from "./Home";
 import Message from "./Message";
 import View from "./View";
+import Profile from "./Profile";
+
+/*
+problem 1:
+double check user verificiation to send message.
+if one user create a post and another user logs in, the second user can view and delete 
+the post of the first user.
+
+probable cause: ?need to check conditions,when we render view/render buttons 
+suggestion to fix: use posts.isAuthor
+
+ Problem 2
+render messages. Not sure how access message contentin profile component
+
+*/
+
+
+
 
 const Main = (props) => {
   const [token, setToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState({});
-
+const [messages, setMessages]=useState([]);
   const [posts, setPosts] = useState([]);
   //const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
@@ -28,6 +46,7 @@ const Main = (props) => {
     };
     fetchPost();
   }, []);
+
 
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
@@ -83,6 +102,9 @@ const Main = (props) => {
             posts={posts}
             setPosts={setPosts}
           />
+        </Route>
+        <Route path="/profile">
+          <Profile Message={messages} isLoggedIn={isLoggedIn} userObj={userObj} posts={posts}/>
         </Route>
       </Switch>
     </div>
