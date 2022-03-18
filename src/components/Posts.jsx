@@ -32,12 +32,11 @@ const Posts = (props) => {
         }}
       ></input>
 
-      {/* //{} isloggedin} */}
-
-      <Link className="PostInput" to="/CreatePost">
-        <button>add Post</button>
-      </Link>
-
+      {isLoggedIn ? (
+        <Link className="PostInput" to="/CreatePost">
+          <button>add Post</button>
+        </Link>
+      ) : null}
       {posts
         .filter((post) => {
           if (searchTerm == "") {

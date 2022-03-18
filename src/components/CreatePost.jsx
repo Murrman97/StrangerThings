@@ -8,7 +8,7 @@ const CreatePost = ({ token, posts, setPosts }) => {
   const [location, setLocation] = useState("");
   const [deliver, setDeliver] = useState(false);
   const [checked, setChecked] = useState(false);
-  console.log(posts, "this is posts passed in to CreatePost");
+  // console.log(posts, "this is posts passed in to CreatePost");
   const handleSubmit = async (e) => {
     e.preventDefault();
     const postDetailsObj = { title, description, location, price, deliver };
