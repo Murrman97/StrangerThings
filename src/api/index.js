@@ -1,4 +1,3 @@
-// Holds api key
 export const registerUser = async (username, password) => {
   const response = await fetch(
     "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/users/register",
@@ -123,10 +122,6 @@ export const deletePost = async (postId, token) => {
   const data = await response.json();
   return data;
 };
-
-/*
-Need to check it alter on. Eventually make adjustment in parameter(s)
-*/
 
 export const newMessage = async (messageDetails, postId, token) => {
   console.log(postId, "postID");

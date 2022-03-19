@@ -1,28 +1,32 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { newPost } from "../api";
+import { Link, useLocation } from "react-router-dom";
+import { updatePost } from "../api";
+import Posts from "./Posts";
 
-const CreatePost = ({ posts, setPosts }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [location, setLocation] = useState("");
-  const [deliver, setDeliver] = useState(false);
-  const [checked, setChecked] = useState(false);
+const EditPost = () => {
+  const propsImport = useLocation();
+  const post = propsImport.state.post;
+  const setPosts = propsImport.state.setPosts;
+  const [title, setTitle] = useState(post.title);
+  const [description, setDescription] = useState(post.description);
+  const [price, setPrice] = useState(post.price);
+  const [location, setLocation] = useState(post.location);
+  const [deliver, setDeliver] = useState(post.deliver);
+  const [checked, setChecked] = useState(post.checked);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const postDetailsObj = { title, description, location, price, deliver };
-    const response = await newPost(
+    const response = await updatePost(
       postDetailsObj,
       localStorage.getItem("token")
     );
-    const newPosts = [response.data.post, ...posts];
-    setPosts([...posts, response.data.post]);
+    setPosts([...Posts, response.data.post]);
   };
 
   return (
     <div className="CreatePost">
-      <h1>Add New Post</h1>
+      <h1>Update post</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -74,19 +78,18 @@ const CreatePost = ({ posts, setPosts }) => {
         ></input>
         <label>Willing to deliver?</label>
         <br></br>
-        <Link to="/Posts">
+        <Link to="/Profile">
           <button
             type="submit"
             onClick={() => {
-              alert("Created");
+              alert("Updated");
             }}
           >
-            CREATE
+            UPDATE
           </button>
         </Link>
       </form>
     </div>
   );
 };
-
-export default CreatePost;
+export default EditPost;

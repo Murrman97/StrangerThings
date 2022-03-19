@@ -13,7 +13,6 @@ const View = (props) => {
   });
 
   const handleDelete = async (postId) => {
-    
     const token = localStorage.getItem("token");
     console.log(postId);
     const data = await deletePost(postId, token);
@@ -22,7 +21,6 @@ const View = (props) => {
     });
     setPosts(filteredPosts);
     alert("post deleted");
-        
   };
 
   return (
@@ -35,7 +33,9 @@ const View = (props) => {
           <p>Seller: {filterPost[0].author.username}</p>
           <p>Location: {filterPost[0].location}</p>
           <Link to="/posts">
-          <button onClick={() => handleDelete(filterPost[0]._id)}>Delete Post</button>
+            <button onClick={() => handleDelete(filterPost[0]._id)}>
+              Delete Post
+            </button>
           </Link>
         </div>
       ) : null}

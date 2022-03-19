@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { loginUser } from "../api";
 
@@ -15,10 +15,6 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
     setUsername("");
     setPassword("");
     const token = localStorage.getItem("token");
-
-    // localStorage.setItem("token", await result.data.token);
-    //   return await result.data.token;
-
     if (token) {
       setIsLoggedIn(true);
       history.push("/home");

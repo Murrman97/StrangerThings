@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Post = ({ post, isLoggedIn, userObj }) => {
-  // console.log(post);
-
   return (
     <div className="SinglePost" key={post._id}>
       <h2>{post.title}</h2>

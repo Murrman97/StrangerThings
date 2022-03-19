@@ -6,10 +6,7 @@ const Message = (props) => {
   const { posts } = props;
   const [myMessage, setMyMessage] = useState("");
   const [post, setPost] = useState(null);
-  const [token, setToken] = useState(null);
-
   let url = window.location.pathname;
-  //   console.log(posts);
 
   useEffect(() => {
     const filteredPost = posts.filter((post) => {
@@ -26,10 +23,10 @@ const Message = (props) => {
     const response = await newMessage(myMessage, post._id, token);
     console.log("messageSent", response);
   }
-  async function sendingMessage(){
-    const element=document.getElementById("messageText");
-    element.value="";
-    alert("message Sent")
+  async function sendingMessage() {
+    const element = document.getElementById("messageText");
+    element.value = "";
+    alert("message Sent");
   }
   return (
     <div className="SinglePost">

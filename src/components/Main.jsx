@@ -1,7 +1,6 @@
-import ReactDOM from "react-dom";
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import { Switch, BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Posts from "./Posts";
@@ -11,20 +10,7 @@ import Home from "./Home";
 import Message from "./Message";
 import View from "./View";
 import Profile from "./Profile";
-
-/*
-problem 1:
-double check user verificiation to send message.
-if one user create a post and another user logs in, the second user can view and delete 
-the post of the first user.
-
-probable cause: ?need to check conditions,when we render view/render buttons 
-suggestion to fix: use posts.isAuthor
-
- Problem 2
-render messages. Not sure how access message contentin profile component
-
-*/
+import EditPost from "./EditPost";
 
 const Main = (props) => {
   const [token, setToken] = useState(null);
@@ -32,7 +18,7 @@ const Main = (props) => {
   const [userObj, setUserObj] = useState({});
 
   const [posts, setPosts] = useState([]);
-  //const [searchTerm, setSearchTerm] = useState("");
+  const [messages, setMessages] = useState([]);
   useEffect(() => {
     const fetchPost = async () => {
       const response = await fetch(
@@ -50,6 +36,7 @@ const Main = (props) => {
     const catchMe = async () => {
       const data = await getMe(currentToken);
       setUserObj(data.data);
+      setMessages(data.data.messages);
     };
 
     if (currentToken) {
@@ -58,12 +45,6 @@ const Main = (props) => {
       catchMe();
     }
   }, []);
-  // console.log(userObj);
-  /*  useEffect(()=>{
-    localStorage.getItem("token") ? setToken(localStorage.getItem("token")) : null  
-  },[])
-  */
-  // console.log(token);
   return (
     <div className="MainClass">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
@@ -99,8 +80,20 @@ const Main = (props) => {
             setPosts={setPosts}
           />
         </Route>
+        <Route path="/EditPost">
+          <EditPost
+            setIsLoggedIn={setIsLoggedIn}
+            posts={posts}
+            setPosts={setPosts}
+          />
+        </Route>
         <Route path="/profile">
-          <Profile isLoggedIn={isLoggedIn} userObj={userObj} posts={posts} />
+          <Profile
+            isLoggedIn={isLoggedIn}
+            userObj={userObj}
+            posts={posts}
+            messages={messages}
+          />
         </Route>
       </Switch>
     </div>

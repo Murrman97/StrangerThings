@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Home = ({ userObj }) => {
-  // useEffect;
-
-  // console.log(userObj.username);
-
   return (
     <div className="HomePage">
       <h1>Welcome to Stranger's Things!</h1>

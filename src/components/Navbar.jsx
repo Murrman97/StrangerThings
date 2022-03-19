@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
-  let history = useHistory();
-
   return (
     <div className="NavBarClass">
       <div className="NavTitle">
@@ -15,9 +13,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <Link to="/home">HOME</Link>
         </li>
       ) : null}
-<li>
-<Link to="/posts">POSTS</Link>
-</li>
+      <li>
+        <Link to="/posts">POSTS</Link>
+      </li>
       {isLoggedIn ? (
         <li>
           <Link to="/profile">PROFILE</Link>
