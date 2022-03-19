@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { newPost } from "../api";
 
 const CreatePost = ({ token, posts, setPosts }) => {
@@ -78,7 +79,9 @@ const CreatePost = ({ token, posts, setPosts }) => {
         ></input>
         <label>Willing to deliver?</label>
         <br></br>
-        <button type="submit">CREATE</button>
+        <Link to="/Posts" >
+        <button type="submit" onClick={()=>{alert("Created")}}>CREATE</button>
+        </Link>
       </form>
     </div>
   );

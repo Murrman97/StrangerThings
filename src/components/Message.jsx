@@ -26,7 +26,11 @@ const Message = (props) => {
     const response = await newMessage(myMessage, post._id, token);
     console.log("messageSent", response);
   }
-
+  async function sendingMessage(){
+    const element=document.getElementById("messageText");
+    element.value="";
+    alert("message Sent")
+  }
   return (
     <div className="SinglePost">
       {post ? (
@@ -39,12 +43,13 @@ const Message = (props) => {
           <form onSubmit={handleClick}>
             <input
               type="text"
+              id="messageText"
               placeholder="Send Message"
               onChange={(e) => {
                 setMyMessage(e.target.value);
               }}
             ></input>
-            <button className="sendMsg" type="submit">
+            <button className="sendMsg" type="submit" onClick={sendingMessage}>
               Send Message
             </button>
           </form>
