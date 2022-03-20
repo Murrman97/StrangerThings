@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { loginUser ,getMe} from "../api";
+import { loginUser, getMe } from "../api";
 
 const Login = ({ isLoggedIn, setIsLoggedIn, currentToken }) => {
   const [username, setUsername] = useState("");
@@ -18,9 +18,11 @@ const Login = ({ isLoggedIn, setIsLoggedIn, currentToken }) => {
     if (token) {
       setIsLoggedIn(true);
       history.push("/home");
+      alert("You have successfully signed in");
+      window.location.reload();
     }
     const data = await getMe(currentToken);
-      setUserObj(data.data);
+    setUserObj(data.data);
   }
 
   return (
