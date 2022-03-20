@@ -35,7 +35,7 @@ const Main = (props) => {
 
     const catchMe = async () => {
       const data = await getMe(currentToken);
-      console.log(data.data)
+      // console.log(data.data)
       setUserObj(data.data);
       setMessages(data.data.messages);
     };
@@ -57,7 +57,11 @@ const Main = (props) => {
           <SignUp setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route exact path="/">
-          <Login setIsLoggedIn={setIsLoggedIn} setUserObj={setUserObj} token={localStorage.getItem("token")} />
+          <Login
+            setIsLoggedIn={setIsLoggedIn}
+            setUserObj={setUserObj}
+            token={localStorage.getItem("token")}
+          />
         </Route>
         <Route path="/posts/:postid/messages">
           <Message posts={posts} />
