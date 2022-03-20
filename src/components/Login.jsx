@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { loginUser } from "../api";
+import { loginUser ,getMe} from "../api";
 
-const Login = ({ isLoggedIn, setIsLoggedIn }) => {
+const Login = ({ isLoggedIn, setIsLoggedIn, currentToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
@@ -19,6 +19,8 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       setIsLoggedIn(true);
       history.push("/home");
     }
+    const data = await getMe(currentToken);
+      setUserObj(data.data);
   }
 
   return (
