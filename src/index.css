@@ -248,3 +248,10 @@ button {
 .sentmsg {
   opacity: 0.7;
 }
+
+.ProfileTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}

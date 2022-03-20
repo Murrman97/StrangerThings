@@ -32,10 +32,10 @@ const Profile = (props) => {
     : null;
   return (
     <div>
-      <h3>Messages From Me</h3>
+      <h3 className="ProfileTitle">Messages From Me</h3>
       {sentMessages}
       <div>
-        <h3>Messages To Me</h3>
+        <h3 className="ProfileTitle">Messages To Me</h3>
         {receivedMessages}
       </div>
     </div>
