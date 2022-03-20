@@ -19,7 +19,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn, currentToken }) => {
       setIsLoggedIn(true);
       history.push("/home");
       alert("You have successfully signed in");
-      window.location.reload();
+      // window.location.reload();
     }
     const data = await getMe(currentToken);
     setUserObj(data.data);

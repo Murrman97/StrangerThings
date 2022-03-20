@@ -29,7 +29,7 @@ const EditPost = () => {
     // setPosts([...Posts, response.data.post]);
     history.push("/posts");
     alert("Updated Post");
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (
