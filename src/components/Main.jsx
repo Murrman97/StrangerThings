@@ -67,7 +67,7 @@ const Main = (props) => {
           <Message posts={posts} />
         </Route>
         <Route path="/posts/view/:postid">
-          <View posts={posts} setPosts={setPosts} />
+          <View posts={posts} setPosts={setPosts} userObj={userObj} />
         </Route>
         <Route path="/posts">
           <Posts

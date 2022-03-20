@@ -84,9 +84,9 @@ export const newPost = async (postDetails, token) => {
   return data;
 };
 
-export const updatePost = async (postDetails, token) => {
+export const updatePost = async (postDetails, postId, token) => {
   const response = await fetch(
-    `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/${postDetails._id}`,
+    `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts/${postId}`,
     {
       method: "PATCH",
       headers: {

@@ -3,7 +3,7 @@ import { deletePost } from "../api";
 import { Link } from "react-router-dom";
 
 const View = (props) => {
-  const { posts, setPosts } = props;
+  const { posts, setPosts, userObj, post } = props;
   let url = window.location.pathname;
 
   const filterPost = posts.filter((post) => {
@@ -23,6 +23,21 @@ const View = (props) => {
     alert("post deleted");
   };
 
+  // const post = userObj.posts.map((post) => {
+  //   return (
+  //     <div className="SinglePost">
+  //       <h2>{post.title}</h2>
+  //       <p>{post.description}</p>
+  //       <p>Price: {post.price}</p>
+  //       <p>Seller: {userObj.username}</p>
+  //       <p>Location: {post.location}</p>
+  //       <Link to={{ pathname: "/EditPost", state: { post: post } }}>
+  //         <button>Edit post</button>
+  //       </Link>
+  //     </div>
+  //   );
+  // });
+
   return (
     <div className="SinglePost">
       {filterPost[0] ? (
@@ -36,6 +51,9 @@ const View = (props) => {
             <button onClick={() => handleDelete(filterPost[0]._id)}>
               Delete Post
             </button>
+          </Link>
+          <Link to={{ pathname: "/EditPost", state: { post: filterPost[0] } }}>
+            <button>Edit post</button>
           </Link>
         </div>
       ) : null}

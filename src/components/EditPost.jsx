@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import { updatePost } from "../api";
 import Posts from "./Posts";
 
@@ -13,15 +13,23 @@ const EditPost = () => {
   const [location, setLocation] = useState(post.location);
   const [deliver, setDeliver] = useState(post.deliver);
   const [checked, setChecked] = useState(post.checked);
+  let history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(post);
     const postDetailsObj = { title, description, location, price, deliver };
+    console.log(postDetailsObj);
     const response = await updatePost(
       postDetailsObj,
+      post._id,
       localStorage.getItem("token")
     );
-    setPosts([...Posts, response.data.post]);
+    console.log(response);
+    // setPosts([...Posts, response.data.post]);
+    history.push("/posts");
+    alert("Updated Post");
+    window.location.reload();
   };
 
   return (
@@ -78,16 +86,8 @@ const EditPost = () => {
         ></input>
         <label>Willing to deliver?</label>
         <br></br>
-        <Link to="/Profile">
-          <button
-            type="submit"
-            onClick={() => {
-              alert("Updated");
-            }}
-          >
-            UPDATE
-          </button>
-        </Link>
+
+        <button type="submit">UPDATE</button>
       </form>
     </div>
   );
