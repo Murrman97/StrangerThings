@@ -3,7 +3,7 @@ import { deletePost } from "../api";
 import { Link } from "react-router-dom";
 
 const View = (props) => {
-  const { posts, setPosts, userObj, post } = props;
+  const { posts, setPosts } = props;
   let url = window.location.pathname;
 
   const filterPost = posts.filter((post) => {
