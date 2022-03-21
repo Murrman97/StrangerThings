@@ -1,8 +1,21 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Message from "./Message";
-const Profile = (props) => {
-  const { isLoggedIn, userObj, posts } = props;
+import React, { useEffect } from "react";
+import { getMe } from "../api";
+const Profile = ({ userObj, setToken,setIsLoggedIn, setUserObj}) => {
+
+
+  useEffect(() => {
+    const currentToken = localStorage.getItem("token");
+
+    const catchMe = async () => {
+      const data = await getMe(currentToken);
+      setUserObj(data.data);
+    };
+    if (currentToken) {
+      setIsLoggedIn(true);
+      setToken(currentToken);
+      catchMe();
+    }
+  }, []);
 
   const sentMessages = userObj.messages
     ? userObj.messages.map((message, i) => {

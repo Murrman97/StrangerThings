@@ -93,11 +93,13 @@ const Main = (props) => {
         </Route>
         <Route path="/profile">
           <Profile
-            isLoggedIn={isLoggedIn}
-            userObj={userObj}
-            posts={posts}
-            messages={messages}
+          userObj={userObj}
+          setToken={setToken}
+          setIsLoggedIn={setIsLoggedIn}
+          setUserObj={setUserObj}
           />
+
+          
         </Route>
       </Switch>
     </div>
