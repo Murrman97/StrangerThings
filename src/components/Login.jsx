@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { loginUser, getMe } from "../api";
 
-const Login = ({ isLoggedIn, setIsLoggedIn, currentToken }) => {
+const Login = ({ isLoggedIn, setIsLoggedIn, currentToken}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
@@ -22,7 +22,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn, currentToken }) => {
       // window.location.reload();
     }
     const data = await getMe(currentToken);
-    setUserObj(data.data);
+    //setUserObj(data.data);
   }
 
   return (

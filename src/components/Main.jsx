@@ -35,7 +35,6 @@ const Main = (props) => {
 
     const catchMe = async () => {
       const data = await getMe(currentToken);
-      // console.log(data.data)
       setUserObj(data.data);
       setMessages(data.data.messages);
     };
@@ -51,7 +50,7 @@ const Main = (props) => {
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
         <Route path="/home">
-          <Home setIsLoggedIn={setIsLoggedIn} userObj={userObj} />
+          <Home setIsLoggedIn={setIsLoggedIn} userObj={userObj} setToken={setToken} setUserObj={setUserObj} />
         </Route>
         <Route path="/users/register">
           <SignUp setIsLoggedIn={setIsLoggedIn} />

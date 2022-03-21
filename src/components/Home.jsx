@@ -1,7 +1,24 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getMe } from "../api";
 
-const Home = ({ userObj }) => {
+const Home = ({ userObj, setToken,setIsLoggedIn, setUserObj}) => {
+
+
+  useEffect(() => {
+    const currentToken = localStorage.getItem("token");
+
+    const catchMe = async () => {
+      const data = await getMe(currentToken);
+      setUserObj(data.data);
+    };
+    if (currentToken) {
+      setIsLoggedIn(true);
+      setToken(currentToken);
+      catchMe();
+    }
+  }, []);
+
   return (
     <div className="HomePage">
       <h1>Welcome to Stranger's Things!</h1>
