@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { loginUser, getMe } from "../api";
 
-const Login = ({ isLoggedIn, setIsLoggedIn, currentToken}) => {
+const Login = ({ setIsLoggedIn, currentToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
@@ -19,10 +19,8 @@ const Login = ({ isLoggedIn, setIsLoggedIn, currentToken}) => {
       setIsLoggedIn(true);
       history.push("/home");
       alert("You have successfully signed in");
-      // window.location.reload();
     }
     const data = await getMe(currentToken);
-    //setUserObj(data.data);
   }
 
   return (

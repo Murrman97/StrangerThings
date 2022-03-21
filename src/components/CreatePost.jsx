@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { newPost } from "../api";
-
 
 const CreatePost = ({ posts, setPosts }) => {
   const [title, setTitle] = useState("");
@@ -11,7 +10,7 @@ const CreatePost = ({ posts, setPosts }) => {
   const [deliver, setDeliver] = useState(false);
   const [checked, setChecked] = useState(false);
 
-let history=useHistory();
+  let history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,8 +21,8 @@ let history=useHistory();
     );
     const newPosts = [response.data.post, ...posts];
     setPosts([...posts, response.data.post]);
-    history.push("/posts")
-    alert("Post added")
+    history.push("/posts");
+    alert("Post added");
   };
 
   return (
@@ -80,12 +79,7 @@ let history=useHistory();
         ></input>
         <label>Willing to deliver?</label>
         <br></br>
-          <button
-            type="submit"
-           
-          >
-            CREATE
-          </button>
+        <button type="submit">CREATE</button>
       </form>
     </div>
   );

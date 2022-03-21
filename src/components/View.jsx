@@ -14,7 +14,6 @@ const View = (props) => {
 
   const handleDelete = async (postId) => {
     const token = localStorage.getItem("token");
-    console.log(postId);
     const data = await deletePost(postId, token);
     const filteredPosts = posts.filter((post) => {
       return post._id !== postId;
@@ -22,21 +21,6 @@ const View = (props) => {
     setPosts(filteredPosts);
     alert("post deleted");
   };
-
-  // const post = userObj.posts.map((post) => {
-  //   return (
-  //     <div className="SinglePost">
-  //       <h2>{post.title}</h2>
-  //       <p>{post.description}</p>
-  //       <p>Price: {post.price}</p>
-  //       <p>Seller: {userObj.username}</p>
-  //       <p>Location: {post.location}</p>
-  //       <Link to={{ pathname: "/EditPost", state: { post: post } }}>
-  //         <button>Edit post</button>
-  //       </Link>
-  //     </div>
-  //   );
-  // });
 
   return (
     <div className="SinglePost">

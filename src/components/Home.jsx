@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMe } from "../api";
 
-const Home = ({ userObj, setToken,setIsLoggedIn, setUserObj}) => {
-
-
+const Home = ({ userObj, setToken, setIsLoggedIn, setUserObj }) => {
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
 

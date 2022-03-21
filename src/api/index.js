@@ -23,7 +23,7 @@ export const registerUser = async (username, password) => {
 };
 
 export const loginUser = async (username, password) => {
-  const response = await fetch(
+  await fetch(
     "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/users/login",
     {
       method: "POST",
@@ -124,7 +124,6 @@ export const deletePost = async (postId, token) => {
 };
 
 export const newMessage = async (messageDetails, postId, token) => {
-  console.log(postId, "postID");
   const response = await fetch(
     `https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts/${postId}/messages`,
     {

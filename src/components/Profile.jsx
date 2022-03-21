@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { getMe } from "../api";
-const Profile = ({ userObj, setToken,setIsLoggedIn, setUserObj}) => {
-
-
+const Profile = ({ userObj, setToken, setIsLoggedIn, setUserObj }) => {
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
 

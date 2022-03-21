@@ -50,7 +50,12 @@ const Main = (props) => {
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
         <Route path="/home">
-          <Home setIsLoggedIn={setIsLoggedIn} userObj={userObj} setToken={setToken} setUserObj={setUserObj} />
+          <Home
+            setIsLoggedIn={setIsLoggedIn}
+            userObj={userObj}
+            setToken={setToken}
+            setUserObj={setUserObj}
+          />
         </Route>
         <Route path="/users/register">
           <SignUp setIsLoggedIn={setIsLoggedIn} />
@@ -93,13 +98,11 @@ const Main = (props) => {
         </Route>
         <Route path="/profile">
           <Profile
-          userObj={userObj}
-          setToken={setToken}
-          setIsLoggedIn={setIsLoggedIn}
-          setUserObj={setUserObj}
+            userObj={userObj}
+            setToken={setToken}
+            setIsLoggedIn={setIsLoggedIn}
+            setUserObj={setUserObj}
           />
-
-          
         </Route>
       </Switch>
     </div>

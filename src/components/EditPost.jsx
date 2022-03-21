@@ -26,10 +26,8 @@ const EditPost = () => {
       localStorage.getItem("token")
     );
     console.log(response);
-    // setPosts([...Posts, response.data.post]);
     history.push("/posts");
     alert("Updated Post");
-    // window.location.reload();
   };
 
   return (

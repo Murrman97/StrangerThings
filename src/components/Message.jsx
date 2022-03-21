@@ -21,7 +21,6 @@ const Message = (props) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
     const response = await newMessage(myMessage, post._id, token);
-    console.log("messageSent", response);
   }
   async function sendingMessage() {
     const element = document.getElementById("messageText");
